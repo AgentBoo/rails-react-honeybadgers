@@ -56,10 +56,6 @@ https://github.com/rails/webpacker/issues/739
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
-  "scripts": {
-    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
-    "heroku-postbuild": "npm run webpack:deploy"
-  },
   "devDependencies": {
     "webpack-dev-server": "^2.9.7"
   }
@@ -67,3 +63,4 @@ https://github.com/rails/webpacker/issues/739
 
 7/ deploy to heroku
 git push heroku master
+heroku rake db:migrate

@@ -1,0 +1,12 @@
+# note
+# start server => rails s 
+
+1/ cli
+# adds webpacker, yarn, bundle exec run on its own
+# yarn was outdated so
+# curl -o- -L https://yarnpkg.com/install.sh | bash
+# bundle exec spring binstub --all
+
+rails new honeybadgers --database=postgresql --webpack=react
+
+2/

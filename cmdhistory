@@ -1,5 +1,7 @@
 # note
-# start server => rails s 
+# start server => rails s
+# see all data types => rails g model -h
+# rails g resource creates a migration + model + test model + controller + test controller + erb view folder + resource route + coffee stuff
 
 1/ cli
 # adds webpacker, yarn, bundle exec run on its own
@@ -9,4 +11,59 @@
 
 rails new honeybadgers --database=postgresql --webpack=react
 
-2/
+2/ cli
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/AgentBoo/rails-react-honeybadgers.git
+git push -u origin master
+
+3/ cli
+rails g resource Badge name:string sku:string price:decimal size:string quantity:integer year:integer description:text category:string
+rails db:migrate
+
+4/ app/controllers/badges_controller.rb
+def index
+end
+
+5/ config/routes.rb
+# delete => resources :badges
+root to: 'badges#index'
+
+6/ app/views/badges
+# create index.html.erb view for badges#index
+<h1> Hello World </h1>
+
+6/ deploy to heroku
+heroku create
+  https://blooming-meadow-90005.herokuapp.com/
+  https://git.heroku.com/blooming-meadow-90005.git
+heroku buildpacks:add heroku/nodejs
+heroku buildpacks:add heroku/ruby --index 2
+
+6.5/ package.json
+https://crypt.codemancers.com/posts/2016-03-18-rails-webpack-heroku/
+https://github.com/rails/webpacker/issues/739
+# add scripts
+
+{
+  "name": "honeybadgers",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.2.0",
+    "babel-preset-react": "^6.24.1",
+    "coffeescript": "1.12.7",
+    "prop-types": "^15.6.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "scripts": {
+    "webpack:deploy": "webpack --config=webpack/webpack.config.js -p",
+    "heroku-postbuild": "npm run webpack:deploy"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.9.7"
+  }
+}
+
+7/ deploy to heroku
+git push heroku master

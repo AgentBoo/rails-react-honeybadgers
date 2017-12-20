@@ -40,27 +40,13 @@ heroku create
 heroku buildpacks:add heroku/nodejs
 heroku buildpacks:add heroku/ruby --index 2
 
-6.5/ package.json
+Note on 6/ package.json
 https://crypt.codemancers.com/posts/2016-03-18-rails-webpack-heroku/
 https://github.com/rails/webpacker/issues/739
-# add scripts
-
-{
-  "name": "honeybadgers",
-  "private": true,
-  "dependencies": {
-    "@rails/webpacker": "^3.2.0",
-    "babel-preset-react": "^6.24.1",
-    "coffeescript": "1.12.7",
-    "prop-types": "^15.6.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
-  },
-  "devDependencies": {
-    "webpack-dev-server": "^2.9.7"
-  }
-}
+# do NOT add scripts
+# just specify buildpacks
 
 7/ deploy to heroku
 git push heroku master
-heroku rake db:migrate
+heroku run rake db:migrate
+heroku open
